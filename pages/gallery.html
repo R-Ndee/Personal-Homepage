@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery — Randi Franco Taroreh</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    .gallery-filter {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      padding: 0.5rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+    .project-full-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+      break-inside: avoid;
+      margin-bottom: 1rem;
+    }
+    .project-full-card:hover { border-color: var(--accent); }
+    .project-full-header {
+      padding: 1.5rem 1.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .project-full-icon {
+      width: 44px; height: 44px;
+      background: var(--accent-dim);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .project-full-meta { flex: 1; }
+    .project-full-title { font-size: 1rem; font-weight: 700; }
+    .project-full-type {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+    }
+    .project-full-body { padding: 1rem 1.5rem 1.5rem; }
+    .project-full-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .project-features {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .feature-item {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .feature-item::before {
+      content: '→';
+      color: var(--accent);
+      flex-shrink: 0;
+      font-family: var(--font-mono);
+    }
+    .project-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+    }
+    .status-done {
+      background: rgba(34, 197, 94, 0.1);
+      color: #22c55e;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+    .status-wip {
+      background: rgba(234, 179, 8, 0.1);
+      color: #eab308;
+      border: 1px solid rgba(234, 179, 8, 0.3);
+    }
+    .status-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      animation: pulseDot 1.5s ease infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; } 50% { opacity: 0.3; }
+    }
+    .masonry-grid { columns: 2; column-gap: 1rem; }
+    @media (max-width: 640px) { .masonry-grid { columns: 1; } }
+  </style>
+</head>
+<body>
+
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <nav class="navbar">
+    <div class="nav-logo"><span>~/</span>randi.dev</div>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <p class="section-tag" style="display:inline-block; margin-bottom:0.75rem;">// my work</p>
+    <h1 class="section-title" style="font-size: clamp(2rem, 4vw, 3rem);">Project <span style="color:var(--accent)">Gallery</span></h1>
+    <p style="color:var(--text-secondary); margin-top:1rem; font-size:0.9rem; font-family:var(--font-mono);">
+      Kumpulan project yang pernah gue kerjain
+    </p>
+  </div>
+
+  <div class="section">
+
+    <div class="gallery-filter reveal">
+      <button class="filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
+      <button class="filter-btn" onclick="filterProjects('mobile', this)">Mobile App</button>
+      <button class="filter-btn" onclick="filterProjects('web', this)">Web</button>
+      <button class="filter-btn" onclick="filterProjects('college', this)">College Task</button>
+    </div>
+
+    <div class="masonry-grid" id="galleryGrid">
+
+      <!-- Project: TodoList -->
+      <div class="project-full-card reveal" data-category="mobile college">
+        <div class="project-full-header">
+          <div class="project-full-icon">✅</div>
+          <div class="project-full-meta">
+            <div class="project-full-title">TodoList App</div>
+            <div class="project-full-type">MOBILE APP · FLUTTER</div>
+          </div>
+        </div>
+        <div class="project-full-body">
+          <p class="project-full-desc">
+            Aplikasi manajemen tugas harian yang gue bangun sebagai project awal belajar Flutter.
+            Simple tapi fungsional — inti dari belajar adalah membangun sesuatu yang bekerja.
+          </p>
+          <div class="project-features">
+            <div class="feature-item">Tambah, edit, dan hapus task</div>
+            <div class="feature-item">Tandai task sebagai selesai</div>
+            <div class="feature-item">Persistent local storage</div>
+          </div>
+          <div class="project-tags" style="margin-bottom: 0.75rem;">
+            <span class="project-tag">Flutter</span>
+            <span class="project-tag">Dart</span>
+            <span class="project-tag">SharedPrefs</span>
+          </div>
+          <span class="project-status status-done"><span class="status-dot"></span>Completed</span>
+        </div>
+      </div>
+
+      <!-- Project: Habit Tracker -->
+      <div class="project-full-card reveal" data-category="mobile college">
+        <div class="project-full-header">
+          <div class="project-full-icon">🎯</div>
+          <div class="project-full-meta">
+            <div class="project-full-title">Habit Tracker</div>
+            <div class="project-full-type">MOBILE APP · FLUTTER</div>
+          </div>
+        </div>
+        <div class="project-full-body">
+          <p class="project-full-desc">
+            Aplikasi untuk membangun dan melacak kebiasaan positif harian.
+            Dirancang untuk membantu konsistensi dengan sistem streak dan visualisasi progress.
+          </p>
+          <div class="project-features">
+            <div class="feature-item">Set target kebiasaan harian</div>
+            <div class="feature-item">Streak counter untuk konsistensi</div>
+            <div class="feature-item">Visualisasi progress mingguan</div>
+            <div class="feature-item">Notifikasi pengingat</div>
+          </div>
+          <div class="project-tags" style="margin-bottom: 0.75rem;">
+            <span class="project-tag">Flutter</span>
+            <span class="project-tag">Dart</span>
+            <span class="project-tag">Local DB</span>
+          </div>
+          <span class="project-status status-done"><span class="status-dot"></span>Completed</span>
+        </div>
+      </div>
+
+      <!-- Project: Student Corner -->
+      <div class="project-full-card reveal" data-category="mobile college">
+        <div class="project-full-header">
+          <div class="project-full-icon">🎓</div>
+          <div class="project-full-meta">
+            <div class="project-full-title">Student Corner</div>
+            <div class="project-full-type">MOBILE APP · FLUTTER</div>
+          </div>
+        </div>
+        <div class="project-full-body">
+          <p class="project-full-desc">
+            Platform informasi terintegrasi untuk mahasiswa — satu aplikasi untuk
+            jadwal kuliah, deadline tugas, dan resources akademik.
+          </p>
+          <div class="project-features">
+            <div class="feature-item">Jadwal kuliah terorganisir</div>
+            <div class="feature-item">Reminder deadline tugas</div>
+            <div class="feature-item">Catatan dan resources per mata kuliah</div>
+          </div>
+          <div class="project-tags" style="margin-bottom: 0.75rem;">
+            <span class="project-tag">Flutter</span>
+            <span class="project-tag">Dart</span>
+            <span class="project-tag">Firebase</span>
+          </div>
+          <span class="project-status status-done"><span class="status-dot"></span>Completed</span>
+        </div>
+      </div>
+
+      <!-- Project: Personal Portfolio (THIS website) -->
+      <div class="project-full-card reveal" data-category="web college">
+        <div class="project-full-header">
+          <div class="project-full-icon">🌐</div>
+          <div class="project-full-meta">
+            <div class="project-full-title">Personal Homepage</div>
+            <div class="project-full-type">WEB · HTML / CSS / JS</div>
+          </div>
+        </div>
+        <div class="project-full-body">
+          <p class="project-full-desc">
+            Website portfolio ini sendiri! Mid Project matakuliah Web Programming.
+            Dibangun murni dengan HTML, CSS, dan Vanilla JavaScript tanpa framework.
+          </p>
+          <div class="project-features">
+            <div class="feature-item">Custom cursor & typing animation</div>
+            <div class="feature-item">Scroll reveal effects</div>
+            <div class="feature-item">4 halaman lengkap (Home, Blog, Gallery, Contact)</div>
+            <div class="feature-item">Responsive mobile design</div>
+          </div>
+          <div class="project-tags" style="margin-bottom: 0.75rem;">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">GitHub</span>
+          </div>
+          <span class="project-status status-wip"><span class="status-dot"></span>In Progress</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>Built with HTML, CSS & JS &nbsp;·&nbsp; <span>Randi Franco Taroreh</span> &nbsp;·&nbsp; Universitas Sam Ratulangi</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    function filterProjects(category, btn) {
+      // Update active button
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Filter cards
+      document.querySelectorAll('.project-full-card').forEach(card => {
+        const cats = card.getAttribute('data-category') || '';
+        if (category === 'all' || cats.includes(category)) {
+          card.style.display = '';
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(16px)';
+          setTimeout(() => {
+            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 50);
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

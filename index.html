@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Randi Franco Taroreh — Portfolio</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-logo"><span>~/</span>randi.dev</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="pages/blog.html">Blog</a></li>
+      <li><a href="pages/gallery.html">Gallery</a></li>
+      <li><a href="pages/contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-tag">Available for Collaboration</div>
+        <h1 class="hero-name">
+          Randi<br/>
+          Franco <span class="accent">Taroreh</span>
+        </h1>
+        <div class="hero-typing-wrapper">
+          <span id="typing-text" class="typing-text"></span><span class="typing-cursor"></span>
+        </div>
+        <p class="hero-desc">
+          Mahasiswa Informatika di Universitas Sam Ratulangi, fokus di bidang
+          <strong>Mobile Development</strong>. Aktif di UNITY (Unsrat IT Community)
+          dan terus belajar membangun aplikasi yang berdampak nyata.
+        </p>
+        <div class="hero-cta">
+          <a href="pages/contact.html" class="btn-primary">Get in Touch →</a>
+          <a href="pages/gallery.html" class="btn-secondary">View Projects</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">4+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">S4</span>
+            <span class="stat-label">Semester</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">UNITY</span>
+            <span class="stat-label">Organization</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-avatar-wrap">
+        <div class="avatar-ring"></div>
+        <div class="avatar-ring-2"></div>
+        <!--
+          PETUNJUK: Ganti 'assets/img/photo.jpg' dengan path foto lo yang sebenarnya.
+          Contoh: jika foto lo bernama 'randi.jpg', taruh di folder assets/img/
+          lalu ubah src menjadi 'assets/img/randi.jpg'
+        -->
+        <img src="assets/img/Profile_Picture.jpeg" alt="Randi Franco Taroreh" class="hero-avatar"
+             onerror="this.style.background='#16161f'; this.style.display='flex'; this.outerHTML='<div class=\'hero-avatar\' style=\'background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:5rem;\'>👤</div>'"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section style="padding: 4rem 2rem 6rem;">
+    <div class="section" style="padding: 0;">
+      <div class="section-header reveal">
+        <p class="section-tag">// about me</p>
+        <h2 class="section-title">Who I <span>Am</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            Halo! Gue <strong>Randi Franco Taroreh</strong>, mahasiswa Program Studi Informatika
+            Fakultas Teknik Universitas Sam Ratulangi, semester 4. Gue passionate di bidang
+            <strong>Mobile Development</strong> dan terus belajar setiap harinya.
+          </p>
+          <p>
+            Gue aktif sebagai anggota <strong>UNITY (Unsrat IT Community)</strong> dengan
+            fokus di divisi Mobile Development. Di sana, gue belajar bareng, share
+            ilmu, dan mengerjakan project bersama teman-teman yang punya passion yang sama.
+          </p>
+          <p>
+            Beberapa project yang sudah gue bangun antara lain <strong>TodoList App</strong>,
+            <strong>Habit Tracker</strong>, <strong>Student Corner</strong>, dan project-project
+            lainnya. Masih banyak yang perlu dipelajari, tapi itulah yang bikin exciting.
+          </p>
+        </div>
+        <div class="reveal">
+          <p class="section-tag" style="margin-bottom: 1rem;">// tech stack</p>
+          <div class="skills-grid">
+            <div class="skill-item"><span class="dot"></span>Flutter / Dart</div>
+            <div class="skill-item"><span class="dot"></span>HTML & CSS</div>
+            <div class="skill-item"><span class="dot"></span>JavaScript</div>
+            <div class="skill-item"><span class="dot"></span>Git & GitHub</div>
+            <div class="skill-item"><span class="dot"></span>Mobile Dev</div>
+            <div class="skill-item"><span class="dot"></span>UI/UX Basics</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section style="padding: 0 2rem 6rem; background: var(--bg-secondary);">
+    <div class="section" style="padding: 4rem 0;">
+      <div class="section-header reveal">
+        <p class="section-tag">// selected work</p>
+        <h2 class="section-title">My <span>Projects</span></h2>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card reveal">
+          <div class="project-icon">✅</div>
+          <h3 class="project-title">TodoList App</h3>
+          <p class="project-desc">Aplikasi manajemen tugas harian dengan fitur tambah, edit, hapus, dan tandai task selesai. Dibangun sebagai project pertama mobile dev.</p>
+          <div class="project-tags">
+            <span class="project-tag">Flutter</span>
+            <span class="project-tag">Dart</span>
+            <span class="project-tag">Mobile</span>
+          </div>
+        </div>
+        <div class="project-card reveal">
+          <div class="project-icon">🎯</div>
+          <h3 class="project-title">Habit Tracker</h3>
+          <p class="project-desc">Aplikasi untuk tracking kebiasaan harian. Pengguna bisa set target, catat progress, dan lihat streak konsistensi mereka.</p>
+          <div class="project-tags">
+            <span class="project-tag">Flutter</span>
+            <span class="project-tag">Dart</span>
+            <span class="project-tag">Mobile</span>
+          </div>
+        </div>
+        <div class="project-card reveal">
+          <div class="project-icon">🎓</div>
+          <h3 class="project-title">Student Corner</h3>
+          <p class="project-desc">Platform informasi dari mahasiswa untuk mahasiswa — informasi, jadwal, tugas, dan resources akademik dalam satu aplikasi yang terintegrasi.</p>
+          <div class="project-tags">
+            <span class="project-tag">Flutter</span>
+            <span class="project-tag">Dart</span>
+            <span class="project-tag">Mobile</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Built with HTML, CSS & JS &nbsp;·&nbsp; <span>Randi Franco Taroreh</span> &nbsp;·&nbsp; Universitas Sam Ratulangi</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Typing animation khusus untuk halaman home
+    initTyping('typing-text', [
+      'Mobile Developer 📱',
+      'Informatika Student 🎓',
+      'UNITY Member 🤝',
+      'Always Learning ⚡'
+    ], 75, 2000);
+  </script>
+</body>
+</html>
