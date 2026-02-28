@@ -1,93 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Randi Franco Taroreh — Portfolio</title>
   <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
 
-  <!-- Custom Cursor -->
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
 
-  <!-- Navbar -->
   <nav class="navbar">
-    <div class="nav-logo"><span>~/</span>randi.dev</div>
+    <div class="nav-logo"><strong>RFT</strong>.dev</div>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="pages/blog.html">Blog</a></li>
       <li><a href="pages/gallery.html">Gallery</a></li>
       <li><a href="pages/contact.html">Contact</a></li>
     </ul>
-    <div class="nav-hamburger">
-      <span></span><span></span><span></span>
-    </div>
+    <div class="nav-hamburger"><span></span><span></span><span></span></div>
   </nav>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-grid-bg"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-content">
-      <div class="hero-left">
-        <div class="hero-tag">Available for Collaboration</div>
+    <div class="hero-ambient"></div>
+    <div class="hero-scanlines"></div>
+    <canvas class="hero-particles" id="heroParticles"></canvas>
+
+    <div class="hero-main">
+      <!-- LEFT: BIG NAME -->
+      <div class="hero-name-block">
+        <div class="hero-eyebrow">Mobile Developer · Unsrat · Manado</div>
         <h1 class="hero-name">
-          Randi<br/>
-          Franco <span class="accent">Taroreh</span>
+          <span class="line-1">Randi</span>
+          <span class="line-2">Franco</span>
+          <span class="line-3">Taroreh</span>
         </h1>
-        <div class="hero-typing-wrapper">
-          <span id="typing-text" class="typing-text"></span><span class="typing-cursor"></span>
-        </div>
-        <p class="hero-desc">
-          Mahasiswa Informatika di Universitas Sam Ratulangi, fokus di bidang
-          <strong>Mobile Development</strong>. Aktif di UNITY (Unsrat IT Community)
-          dan terus belajar membangun aplikasi yang berdampak nyata.
-        </p>
-        <div class="hero-cta">
-          <a href="pages/contact.html" class="btn-primary">Get in Touch →</a>
-          <a href="pages/gallery.html" class="btn-secondary">View Projects</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-num">4+</span>
-            <span class="stat-label">Projects</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num">S4</span>
-            <span class="stat-label">Semester</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num">UNITY</span>
-            <span class="stat-label">Organization</span>
+        <div class="hero-role">
+          <div class="hero-role-line"></div>
+          <div class="hero-role-text">
+            <span id="typing-text" class="typing-text"></span><span class="typing-cursor"></span>
           </div>
         </div>
       </div>
 
-      <div class="hero-avatar-wrap">
-        <div class="avatar-ring"></div>
-        <div class="avatar-ring-2"></div>
-        <!--
-          PETUNJUK: Ganti 'assets/img/photo.jpg' dengan path foto lo yang sebenarnya.
-          Contoh: jika foto lo bernama 'randi.jpg', taruh di folder assets/img/
-          lalu ubah src menjadi 'assets/img/randi.jpg'
-        -->
-        <img src="assets/img/Profile_Picture.jpeg" alt="Randi Franco Taroreh" class="hero-avatar"
-             onerror="this.style.background='#16161f'; this.style.display='flex'; this.outerHTML='<div class=\'hero-avatar\' style=\'background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:5rem;\'>👤</div>'"/>
+      <!-- RIGHT: PHOTO + STATS -->
+      <div class="hero-right">
+        <div class="hero-photo-wrap">
+          <div class="glitch-container">
+            <img src="assets/img/Profile_Picture3.png"
+                 alt="Randi Franco Taroreh"
+                 class="hero-photo"
+                 onerror="this.closest('.glitch-container').innerHTML='<div class=\'hero-photo-fallback\'>👤</div>'"/>
+            <div class="glitch-cyan">
+              <img src="assets/img/Profile_Picture3.png" alt="" aria-hidden="true"/>
+            </div>
+            <div class="glitch-purple">
+              <img src="assets/img/Profile_Picture3.png" alt="" aria-hidden="true"/>
+            </div>
+          </div>
+          <div class="glitch-badge">RFT.DEV / 2025</div>
+        </div>
+        <div class="hero-info-card">
+          <div class="hero-info-item">
+            <div class="hero-info-num">6+</div>
+            <div class="hero-info-label">Projects</div>
+          </div>
+          <div class="hero-info-item">
+            <div class="hero-info-num">S4</div>
+            <div class="hero-info-label">Semester</div>
+          </div>
+          <div class="hero-info-item">
+            <div class="hero-info-num">UNITY</div>
+            <div class="hero-info-label">Org</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="hero-bottom">
+      <p class="hero-desc">
+        Mahasiswa Informatika di Universitas Sam Ratulangi, fokus di
+        <strong>Mobile Development</strong>. Aktif di UNITY (Unsrat IT Community)
+        dan terus belajar membangun aplikasi yang berdampak nyata.
+      </p>
+      <div class="hero-cta">
+        <a href="pages/contact.html" class="btn-primary">Get in Touch →</a>
+        <a href="pages/gallery.html" class="btn-secondary">View Projects</a>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section style="padding: 4rem 2rem 6rem;">
-    <div class="section" style="padding: 0;">
-      <div class="section-header reveal">
-        <p class="section-tag">// about me</p>
-        <h2 class="section-title">Who I <span>Am</span></h2>
-      </div>
-      <div class="about-grid">
+  <!-- ABOUT -->
+  <section class="about-section">
+    <div class="about-bg-text">ABOUT</div>
+    <div class="about-inner">
+      <div class="about-index">01 — WHO I AM</div>
+      <div class="about-content-grid">
         <div class="about-text reveal">
+          <div class="about-section-tag">About Me</div>
+          <h2 class="about-title">Who I <span>Am</span></h2>
           <p>
             Halo! Gue <strong>Randi Franco Taroreh</strong>, mahasiswa Program Studi Informatika
             Fakultas Teknik Universitas Sam Ratulangi, semester 4. Gue passionate di bidang
@@ -95,80 +109,128 @@
           </p>
           <p>
             Gue aktif sebagai anggota <strong>UNITY (Unsrat IT Community)</strong> dengan
-            fokus di divisi Mobile Development. Di sana, gue belajar bareng, share
-            ilmu, dan mengerjakan project bersama teman-teman yang punya passion yang sama.
+            fokus di divisi Mobile Development — belajar bareng, share ilmu, dan
+            mengerjakan project bersama orang-orang yang punya passion yang sama.
           </p>
           <p>
-            Beberapa project yang sudah gue bangun antara lain <strong>TodoList App</strong>,
-            <strong>Habit Tracker</strong>, <strong>Student Corner</strong>, dan project-project
-            lainnya. Masih banyak yang perlu dipelajari, tapi itulah yang bikin exciting.
+            Masih banyak yang perlu dipelajari, tapi itulah yang bikin exciting.
           </p>
         </div>
         <div class="reveal">
-          <p class="section-tag" style="margin-bottom: 1rem;">// tech stack</p>
+          <div class="skills-label">// Tech Stack</div>
           <div class="skills-grid">
-            <div class="skill-item"><span class="dot"></span>Flutter / Dart</div>
-            <div class="skill-item"><span class="dot"></span>HTML & CSS</div>
-            <div class="skill-item"><span class="dot"></span>JavaScript</div>
-            <div class="skill-item"><span class="dot"></span>Git & GitHub</div>
-            <div class="skill-item"><span class="dot"></span>Mobile Dev</div>
-            <div class="skill-item"><span class="dot"></span>UI/UX Basics</div>
+            <div class="skill-item"><span class="skill-num">01</span>Flutter / Dart</div>
+            <div class="skill-item"><span class="skill-num">02</span>HTML & CSS</div>
+            <div class="skill-item"><span class="skill-num">03</span>JavaScript</div>
+            <div class="skill-item"><span class="skill-num">04</span>Git & GitHub</div>
+            <div class="skill-item"><span class="skill-num">05</span>Mobile Dev</div>
+            <div class="skill-item"><span class="skill-num">06</span>UI/UX Basics</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section style="padding: 0 2rem 6rem; background: var(--bg-secondary);">
-    <div class="section" style="padding: 4rem 0;">
-      <div class="section-header reveal">
-        <p class="section-tag">// selected work</p>
-        <h2 class="section-title">My <span>Projects</span></h2>
+  <!-- PROJECTS -->
+  <section class="projects-section">
+    <div class="projects-inner">
+      <div class="projects-header reveal">
+        <div class="projects-title-group">
+          <div class="projects-section-tag">Selected Work</div>
+          <h2 class="projects-title">My <span>Projects</span></h2>
+        </div>
+        <div class="projects-count">06 projects total</div>
       </div>
-      <div class="projects-grid">
-        <div class="project-card reveal">
-          <div class="project-icon">✅</div>
-          <h3 class="project-title">TodoList App</h3>
-          <p class="project-desc">Aplikasi manajemen tugas harian dengan fitur tambah, edit, hapus, dan tandai task selesai. Dibangun sebagai project pertama mobile dev.</p>
-          <div class="project-tags">
-            <span class="project-tag">Flutter</span>
-            <span class="project-tag">Dart</span>
-            <span class="project-tag">Mobile</span>
-          </div>
-        </div>
-        <div class="project-card reveal">
-          <div class="project-icon">🎯</div>
-          <h3 class="project-title">Habit Tracker</h3>
-          <p class="project-desc">Aplikasi untuk tracking kebiasaan harian. Pengguna bisa set target, catat progress, dan lihat streak konsistensi mereka.</p>
-          <div class="project-tags">
-            <span class="project-tag">Flutter</span>
-            <span class="project-tag">Dart</span>
-            <span class="project-tag">Mobile</span>
-          </div>
-        </div>
-        <div class="project-card reveal">
-          <div class="project-icon">🎓</div>
+
+      <!-- BENTO GRID: featured (big) + 4 small -->
+      <div class="projects-bento">
+
+        <!-- Featured -->
+        <div class="project-card featured reveal">
+          <span class="project-num">01 / FEATURED</span>
+          <span class="project-icon">🎓</span>
           <h3 class="project-title">Student Corner</h3>
-          <p class="project-desc">Platform informasi dari mahasiswa untuk mahasiswa — informasi, jadwal, tugas, dan resources akademik dalam satu aplikasi yang terintegrasi.</p>
+          <p class="project-desc">Platform berbagi cerita khusus mahasiswa — ruang di mana mahasiswa bisa saling berbagi pengalaman, curhatan, dan informasi seputar perkuliahan kepada sesama mahasiswa di kampus. Dibangun dengan semangat komunitas dan keterbukaan.</p>
           <div class="project-tags">
             <span class="project-tag">Flutter</span>
             <span class="project-tag">Dart</span>
             <span class="project-tag">Mobile</span>
           </div>
         </div>
+
+        <!-- Small cards -->
+        <div class="project-card reveal">
+          <span class="project-num">02</span>
+          <span class="project-icon">✅</span>
+          <h3 class="project-title">TodoList App</h3>
+          <p class="project-desc">Manajemen tugas harian dengan fitur tambah, edit, hapus, dan tandai selesai.</p>
+          <div class="project-tags">
+            <span class="project-tag">Flutter</span>
+            <span class="project-tag">Dart</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <span class="project-num">03</span>
+          <span class="project-icon">🎯</span>
+          <h3 class="project-title">Habit Tracker</h3>
+          <p class="project-desc">Tracking kebiasaan harian dengan streak counter dan visualisasi progress.</p>
+          <div class="project-tags">
+            <span class="project-tag">Flutter</span>
+            <span class="project-tag">Dart</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <span class="project-num">04</span>
+          <span class="project-icon">📅</span>
+          <h3 class="project-title">Schedify</h3>
+          <p class="project-desc">Kalender sederhana untuk kegiatan harian dengan notifikasi otomatis.</p>
+          <div class="project-tags">
+            <span class="project-tag">Flutter</span>
+            <span class="project-tag">Dart</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <span class="project-num">05</span>
+          <span class="project-icon">🌐</span>
+          <h3 class="project-title">Personal Homepage</h3>
+          <p class="project-desc">Website portfolio ini sendiri. Dibangun murni HTML, CSS, dan Vanilla JS.</p>
+          <div class="project-tags">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">JS</span>
+          </div>
+        </div>
+
+        <div class="project-card project-bib reveal">
+          <span class="project-num">06 / IN PROGRESS</span>
+          <span class="project-icon">🏆</span>
+          <h3 class="project-title">Best In Battle (BIB)</h3>
+          <p class="project-desc">Platform manajemen turnamen berbasis web — generik untuk olahraga, esports, hingga kompetisi akademik. Mendukung dua mode: <strong style="color:var(--text-primary)">Bracket Single Elimination</strong> dengan scoring live per set, dan <strong style="color:var(--text-primary)">Poin (Papan Skor Digital)</strong> untuk kompetisi akumulasi. Sistem role berbasis konteks: Guest, Member, Organizer, dan Admin.</p>
+          <div class="project-tags">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">PHP</span>
+            <span class="project-tag">MySQL</span>
+            <span class="project-tag" style="color: #eab308; border-color: rgba(234,179,8,0.3); background: rgba(234,179,8,0.06);">⚡ In Progress</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>Built with HTML, CSS & JS &nbsp;·&nbsp; <span>Randi Franco Taroreh</span> &nbsp;·&nbsp; Universitas Sam Ratulangi</p>
+    <span>Randi Franco Taroreh · Universitas Sam Ratulangi</span>
+    <div class="footer-line"></div>
+    <span>Built with HTML, CSS & JS</span>
   </footer>
 
   <script src="js/main.js"></script>
   <script>
-    // Typing animation khusus untuk halaman home
     initTyping('typing-text', [
       'Mobile Developer 📱',
       'Informatika Student 🎓',
