@@ -232,6 +232,15 @@ footer span { color: var(--accent); }
 .form-textarea { min-height: 130px; resize: vertical; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
+.typing-logo {
+  height: 18px; width: auto;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+  vertical-align: middle;
+  margin-left: 0.4rem;
+  opacity: 0.9;
+}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .hero-main { grid-template-columns: 1fr; padding: 2rem 1.5rem; }

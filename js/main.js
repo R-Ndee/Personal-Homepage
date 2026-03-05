@@ -42,11 +42,28 @@
 })();
 
 // ===== TYPING ANIMATION =====
-function initTyping(elementId, texts, speed = 80, pause = 1800) {
+function initTyping(elementId, texts, speed = 80, pause = 1800, logoMap = {}) {
   const el = document.getElementById(elementId);
   if (!el) return;
 
+  // Logo element — sits right after the typing span
+  const logoEl = document.createElement('img');
+  logoEl.className = 'typing-logo';
+  logoEl.alt = '';
+  logoEl.style.display = 'none';
+  el.parentNode.insertBefore(logoEl, el.nextSibling);
+
   let textIndex = 0, charIndex = 0, isDeleting = false;
+
+  function updateLogo(text) {
+    const match = Object.keys(logoMap).find(key => text.includes(key));
+    if (match && !isDeleting && charIndex === text.length) {
+      logoEl.src = logoMap[match];
+      logoEl.style.display = 'inline-block';
+    } else {
+      logoEl.style.display = 'none';
+    }
+  }
 
   function type() {
     const currentText = texts[textIndex];
@@ -57,6 +74,8 @@ function initTyping(elementId, texts, speed = 80, pause = 1800) {
       el.textContent = currentText.substring(0, charIndex + 1);
       charIndex++;
     }
+
+    updateLogo(currentText);
 
     let delay = isDeleting ? speed / 2 : speed;
 
